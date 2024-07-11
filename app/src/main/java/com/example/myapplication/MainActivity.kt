@@ -6,27 +6,32 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private  lateinit var btnAdd :Button
-    private  lateinit var btnSub :Button
-    private  lateinit var btnMul :Button
-    private  lateinit var btnDiv :Button
-    private  lateinit var edtA :EditText
-    private  lateinit var edtB :EditText
-    private  lateinit var textResult :TextView
+    lateinit var btnAdd :Button
+    lateinit var btnSub :Button
+    lateinit var btnMul :Button
+    lateinit var btnDiv :Button
+    lateinit var edtA :EditText
+    lateinit var edtB :EditText
+    lateinit var textResult :TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        edtA.findViewById<View>(R.id.edit_text_a)
-        edtB.findViewById<View>(R.id.edit_text_b)
-        textResult.findViewById<View>(R.id.textResult)
-        btnAdd.findViewById<View>(R.id.button_add).setOnClickListener(this)
-        btnSub.findViewById<View>(R.id.button_substract).setOnClickListener(this)
-        btnMul.findViewById<View>(R.id.button_multi).setOnClickListener(this)
-        btnDiv.findViewById<View>(R.id.button_divide).setOnClickListener(this)
+        edtA = findViewById(R.id.edit_text_a)
+        edtB = findViewById(R.id.edit_text_b)
+        textResult = findViewById(R.id.textResult)
+        btnAdd = findViewById(R.id.button_add)
+        btnSub = findViewById(R.id.button_substract)
+        btnMul = findViewById(R.id.button_multi)
+        btnDiv = findViewById(R.id.button_divide)
+
+        btnAdd.setOnClickListener(this)
+        btnSub.setOnClickListener(this)
+        btnDiv.setOnClickListener(this)
+        btnMul.setOnClickListener(this)
 
 
     }
@@ -49,7 +54,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 result = number_a / number_b
             }
         }
-        textResult.setText("Result is  $result")
+        textResult.text = "Result is  $result"
 
     }
 }
